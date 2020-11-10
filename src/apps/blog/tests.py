@@ -43,7 +43,7 @@ class PostsLikeTests(APITestCase):
             reverse("blog:posts:like", kwargs={"pk": self.post.pk})
         )
 
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertEqual(PostLike.objects.count(), 1)
         self.assertEqual(PostLike.objects.get().user, self.user)
         self.assertEqual(PostLike.objects.get().post, self.post)
