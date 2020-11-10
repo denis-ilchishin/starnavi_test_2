@@ -39,3 +39,10 @@ class AuthenticationTests(APITestCase):
         self.assertAlmostEqual(
             self.user.last_activity.timestamp(), timezone.now().timestamp(), places=1
         )
+
+    def test_user_activity_endpoint(self):
+        self.client.force_authenticate(user=self.user)
+
+        response = self.client.get(reverse("account:user-activity"))
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
