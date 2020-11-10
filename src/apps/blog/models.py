@@ -23,3 +23,6 @@ class PostLike(models.Model):
     )
 
     date_created = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        unique_together = (("user", "post"),)
