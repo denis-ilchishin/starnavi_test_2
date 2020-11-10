@@ -17,7 +17,7 @@ class AuthenticationTests(APITestCase):
             "password_confirm": password_confirm,
         }
 
-        response = self.client.post(reverse("authentication:signup", data))
+        response = self.client.post(reverse("authentication:signup"), data)
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(get_user_model().objects.count(), 1)
@@ -34,8 +34,8 @@ class AuthenticationTests(APITestCase):
 
         data = {"username": username, "password": password}
 
-        response = self.client.post(reverse("authentication:signin", data))
+        response = self.client.post(reverse("authentication:signin"), data)
 
         self.assertEqual(response.status_code, 200)
-        self.assertIn(response.data, "access")
-        self.assertIn(response.data, "refresh")
+        self.assertIn("access", response.data)
+        self.assertIn("refresh", response.data)
