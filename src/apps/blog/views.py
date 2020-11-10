@@ -57,3 +57,18 @@ class PostUnlikeView(APIView):
         post_like.delete()
 
         return Response(None, status=HTTP_204_NO_CONTENT)
+
+
+class PostLikesAnalytics(APIView):
+    def get(self, request: Request, pk):
+        query_serilizer = serializers.PostAnalyticsQuerySerializers(
+            data=request.query_params
+        )
+        query_serilizer.is_valid(True)
+
+        try:
+            post: Post = Post.objects.get(pk=pk)
+        except ObjectDoesNotExist:
+            return Http404()
+
+        return Response(post.aggregate_post_likes(**query_serilizer.validated_data))
