@@ -8,6 +8,6 @@ app_name = "authentication"
 urlpatterns = (
     path("token/", TokenObtainPairView.as_view(), name="signin"),
     path("signup/", views.SignupView.as_view(), name="signup"),
-    # TODO: add refresh route token
+    # TODO: add refresh token route
     # path('refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 )
