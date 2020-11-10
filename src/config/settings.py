@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "apps.core.apps.CoreConfig",
     "apps.authentication.apps.AuthenticationConfig",
     "apps.blog.apps.BlogConfig",
+    "apps.account.apps.AccountConfig",
 ]
 
 MIDDLEWARE = [
@@ -54,6 +55,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "apps.core.middleware.UserLastActivityMiddleware"
 ]
 
 ROOT_URLCONF = "config.urls"
