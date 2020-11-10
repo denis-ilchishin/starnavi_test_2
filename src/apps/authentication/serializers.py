@@ -17,8 +17,8 @@ class SignupSerializer(serializers.Serializer):
         ._meta.get_field(get_user_model().EMAIL_FIELD)
         .validators
     )
-    password = serializers.CharField()
-    password_confirm = serializers.CharField()
+    password = serializers.CharField(style={"input_type": "password"})
+    password_confirm = serializers.CharField(style={"input_type": "password"})
 
     def validate(self, attrs):
         """
@@ -47,7 +47,7 @@ class SignupSerializer(serializers.Serializer):
 
         if password_confirm != password:
             raise ValidationError(
-                {"password_confirm": (_("Passwords must be the same"),)}
+                {"password_confirm": [_("Password confirmation is incorrect"),]}
             )
 
         return super().validate(attrs)
