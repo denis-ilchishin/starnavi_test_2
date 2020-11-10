@@ -140,3 +140,8 @@ REST_FRAMEWORK = {
     ),
     "DEFAULT_PERMISSION_CLASESS": ("rest_framework.permissions.IsAuthenticated",),
 }
+
+
+SIMPLE_JWT = {
+    "UPDATE_LAST_LOGIN": True,  # TODO: throttle `TokenObtainPairView` endpoint to prevent abusing and slowing down the server
+}
