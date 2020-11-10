@@ -19,7 +19,7 @@ class AuthenticationTests(APITestCase):
 
         response = self.client.post(reverse("authentication:signup"), data)
 
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(get_user_model().objects.count(), 1)
         self.assertEqual(get_user_model().objects.get().username, username)
         self.assertEqual(get_user_model().objects.get().email, email)
