@@ -20,6 +20,6 @@ COPY . ${HOME}/app
 
 RUN chown ${USER}:${USER} -R ${HOME}
 
-WORKDIR ${HOME}
+WORKDIR ${HOME}/app/src
 
 USER ${USER}

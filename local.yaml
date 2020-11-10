@@ -35,3 +35,7 @@ services:
     volumes:
       - .:/home/container/app
       - vscode:/home/container/.vscode-server/extenstions
+    depends_on:
+      - postgres
+    ports:
+      - 8000:8000
