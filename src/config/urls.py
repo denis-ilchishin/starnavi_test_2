@@ -19,4 +19,5 @@ from django.urls.conf import include
 urlpatterns = [
     path("authentication/", include("apps.authentication.urls")),
     path("blog/", include("apps.blog.urls")),
+    path("account/", include("apps.account.urls")),
 ]
