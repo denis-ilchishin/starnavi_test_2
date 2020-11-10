@@ -18,6 +18,11 @@ urlpatterns = (
                         views.PostUnlikeView.as_view(),
                         name="unlike",
                     ),
+                    path(
+                        "analytics/<int:pk>/",
+                        views.PostLikesAnalytics.as_view(),
+                        name="analytics",
+                    ),
                 ),
                 "posts",
             )
