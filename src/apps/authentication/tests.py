@@ -8,7 +8,7 @@ class AuthenticationTests(APITestCase):
     def test_signup(self):
         username = "some-username-example"
         email = "some-mail@example.com"
-        password = password_confirm = "some-password-example"
+        password = password_confirm = "lkfajsdfljaslf"
 
         data = {
             "username": username,
